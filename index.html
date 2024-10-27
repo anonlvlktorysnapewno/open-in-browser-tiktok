@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open in Browser</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        #tiktokMessage, #openInBrowserButton {
+            display: none;
+        }
+        img {
+            max-width: 80%;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Open this Link in Your Browser</h1>
+    <p id="instructions">Please open this page in your browser to view it fully.</p>
+
+    <!-- Obraz i przycisk tylko dla TikToka -->
+    <div id="tiktokMessage">
+        <p>1. Tap the **three dots** in the top right.</p>
+        <p>2. Select **“Open in Browser”**.</p>
+        <img src="Tiktok_view.png" alt="TikTok Instructions">
+    </div>
+
+    <!-- Przycisk do przekierowania -->
+    <button id="openInBrowserButton" onclick="redirect()">Open in Browser</button>
+
+    <script>
+        // Wykrywanie przeglądarki TikTok
+        if (navigator.userAgent.includes("TikTok")) {
+            document.getElementById("tiktokMessage").style.display = "block";
+            document.getElementById("openInBrowserButton").style.display = "inline-block";
+            document.getElementById("instructions").style.display = "none";
+        } else {
+            // Automatyczne przekierowanie, jeśli nie TikTok
+            window.location.href = "https://swcapp.com/walkformillions";
+        }
+
+        // Funkcja przekierowania
+        function redirect() {
+            window.location.href = "https://swcapp.com/walkformillions";
+        }
+    </script>
+</body>
+</html>
